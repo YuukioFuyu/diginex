@@ -1,0 +1,105 @@
+<?php
+
+namespace App\Notifications\Admin;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+
+class DepositAction extends Notification
+{
+    use Queueable;
+
+    private float $amount;
+
+    private string $type;
+
+    private string $method;
+
+    private string $user_name;
+
+    private string $user_avatar;
+    /**
+     * @var mixed|null
+     */
+    private mixed $actionLink;
+
+    /**
+     * Create a new notification instance.
+     */
+    public function __construct(object $transaction, $actionLink = null)
+    {
+        $this->user_name = $transaction->user->full_name;
+        $this->user_avatar = $transaction->user->avatar;
+
+        $this->amount = $transaction->amount;
+        $this->type = $transaction->type;
+        $this->method = $transaction->method;
+
+        $this->actionLink = $actionLink;
+
+    }
+
+    /**
+     * Get the notification's delivery channels.
+     *
+     * @return array<int, string>
+     */
+    public function via(object $notifiable): array
+    {
+        return ['database'];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     */
+    public function toMail(object $notifiable): MailMessage
+    {
+        return (new MailMessage)
+            ->line('A new deposit has been submitted for approval.')
+            ->line('Amount: '.$this->amount)
+            ->line('Method: '.$this->method)
+            ->action('View Deposit', url('/deposits')) // Adjust the URL as needed
+            ->line('Thank you for using our application!');
+    }
+
+    /**
+     * Get the array representation of the notification for database.
+     *
+     * @return array<string, mixed>
+     */
+    public function toDatabase(object $notifiable): array
+    {
+        return $this->notificationData();
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(object $notifiable): array
+    {
+        return $this->notificationData();
+    }
+
+    /**
+     * Shared notification data.
+     *
+     * @return array<string, mixed>
+     */
+    private function notificationData(): array
+    {
+        return [
+            'user_name' => $this->user_name,
+            'user_avatar' => $this->user_avatar,
+            'amount' => $this->amount,
+            'type' => $this->type,
+            'action_link' => $this->actionLink ?? null,
+            'message' => __('New deposit request of :amount with :method', [
+                'amount' => $this->amount,
+                'method' => $this->method,
+            ]),
+        ];
+    }
+}

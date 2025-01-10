@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class SubscriptionStatus{    public const PENDING = 'pending';    public const ACTIVE = 'active';    public const EXPIRED = 'expired';    public const CANCELLED = 'cancelled';    public const STATUS = [        self::PENDING,        self::ACTIVE,        self::EXPIRED,        self::CANCELLED,    ];}

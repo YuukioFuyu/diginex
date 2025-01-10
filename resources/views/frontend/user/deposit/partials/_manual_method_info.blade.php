@@ -1,0 +1,1 @@
+<div class="card p-0 mb-4">    <div class="card-status-start bg-primary"></div>    <div class="card-body">        <h3 class="card-title">{{ __('Payment Information') }}</h3>        <p class="text-secondary">{{ $info }}</p>    </div></div>

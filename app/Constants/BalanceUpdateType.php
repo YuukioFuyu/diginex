@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class BalanceUpdateType{    public const ADD = 'add';    public const SUBTRACT = 'subtract';    public const TYPES = [        self::ADD,        self::SUBTRACT,    ];}

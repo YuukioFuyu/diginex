@@ -1,0 +1,1 @@
+<div class="nav-item dropdown me-3" id="append-new-notification">    @include('frontend.layouts.user.partials._notifications_dropdown', ['notifications' => auth()->user()->getRecentNotifications()])</div>

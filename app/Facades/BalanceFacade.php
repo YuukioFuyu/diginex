@@ -1,0 +1,1 @@
+<?phpnamespace App\Facades;use Illuminate\Support\Facades\Facade;class BalanceFacade extends Facade{    protected static function getFacadeAccessor()    {        return 'balance'; // Must match the service binding key    }}

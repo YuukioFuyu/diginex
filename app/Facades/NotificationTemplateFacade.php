@@ -1,0 +1,1 @@
+<?phpnamespace App\Facades;use Illuminate\Support\Facades\Facade;/** * @method static array getTemplateData(string $code) * * @see \App\Services\NotificationTemplateService */class NotificationTemplateFacade extends Facade{    protected static function getFacadeAccessor()    {        return 'notification_template';    }}

@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class Priority{    public const LOW = 'low';    public const MEDIUM = 'medium';    public const HIGH = 'high';    public const TYPE = [        self::LOW,        self::MEDIUM,        self::HIGH,    ];}

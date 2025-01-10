@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class TaskStatus{    public const PENDING = 'pending';    public const IN_PROGRESS = 'in_progress';    public const COMPLETED = 'completed';    public const STATUS = [        self::PENDING,        self::IN_PROGRESS,        self::COMPLETED,    ];}

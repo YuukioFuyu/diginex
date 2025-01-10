@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class type{    const SUPPORT_TICKET = 'support_ticket';    const NOTIFICATION = 'notification';    public static function getAll(): array    {        return [            self::SUPPORT_TICKET,            self::NOTIFICATION,        ];    }}

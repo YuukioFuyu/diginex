@@ -1,0 +1,1 @@
+<div class="col-12 col-xxl-4 mb-3 mb-xxl-0">    <div class="card">        <div class="card-header">            <h3 class="card-title">{{ __('My Service Statistics') }}</h3>        </div>        <div class="card-body">            <div id="chart-demo-pie" class="chart-lg"></div>        </div>    </div></div>

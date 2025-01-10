@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+
+class SeoController extends Controller
+{
+    public function index()
+    {
+        $section = 'Seo Manage';
+        $settings = config('settings')['seo'];
+
+        return view('backend.page.setting', compact('settings', 'section'));
+    }
+}

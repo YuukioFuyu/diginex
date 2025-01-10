@@ -1,0 +1,1 @@
+<?php// routes/broadcast.phpuse Illuminate\Support\Facades\Broadcast;Broadcast::routes(['middleware' => 'auth.any']);

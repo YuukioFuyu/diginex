@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class PlanType{    public const MONTHLY = 'monthly';    public const YEARLY = 'yearly';    public const TYPE = [        self::MONTHLY,        self::YEARLY,    ];}

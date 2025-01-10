@@ -1,0 +1,1 @@
+<?phpnamespace App\Constants;class TicketStatus{    public const PENDING = 'pending';    public const IN_PROGRESS = 'in_progress';    public const COMPLETED = 'completed';    public const CLOSED = 'closed';    public const STATUS = [        self::PENDING,        self::IN_PROGRESS,        self::COMPLETED,        self::CLOSED,    ];}
