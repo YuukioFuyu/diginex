@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'failed' => 'Estas credenciales no coinciden con nuestros registros.',
+  'failed' => 'These credentials do not match our records.',
   'password' => '',
-  'throttle' => 'Se superó el número máximo de intentos de inicio de sesión. Inténtelo de nuevo después de un período de tiempo específico.',
+  'throttle' => 'The maximum number of login attempts was exceeded. Please try again after a specified period of time.',
 );

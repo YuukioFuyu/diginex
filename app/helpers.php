@@ -339,3 +339,20 @@ if (! function_exists('maskEmail')) {
     }
 
 }
+
+if (! function_exists('footer_copyright')) {
+    function footer_copyright()
+    {
+        // Retrieve copyright text from settings
+        $footer_copyright_text = setting('copyright');
+
+        // Replace the {copy} placeholder with the HTML &copy symbol;
+        $footer_copyright_text = str_replace('{copy}', '&copy;', $footer_copyright_text);
+
+        // Replace placeholder {year} with the current year
+        $footer_copyright_text = str_replace('{year}', date('Y'), $footer_copyright_text);
+
+        return $footer_copyright_text;
+    }
+}
+
