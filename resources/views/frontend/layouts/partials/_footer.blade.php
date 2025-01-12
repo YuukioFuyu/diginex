@@ -82,7 +82,7 @@
 		<div class="container">
 			<div
 				class="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
-				<p class="wow fadeInDown" data-wow-delay="00ms" data-wow-duration="1500ms">{{ setting('copyright') }} <a href="{{ url('/') }}">{{ title(setting('site_title')) }}</a></p>
+				<p class="wow fadeInDown" data-wow-delay="00ms" data-wow-duration="1500ms">{!! footer_copyright() !!}</p>
 				<ul class="d-flex align-items-center gap-4 wow fadeInDown" data-wow-delay="200ms"
 				    data-wow-duration="1500ms">
 					<li><a href="{{ setting('terms_condition_link') }}">{{ __('Terms & Conditions') }}</a></li>

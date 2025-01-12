@@ -22,10 +22,10 @@
             <div class="d-none d-xl-flex gap-4">
 
                 @if(auth()->check())
-                    <a href="{{ route('user.dashboard') }}" class="btn-one">{{ __('Dashboard') }} <i
+                    <a href="{{ route('user.dashboard') }}" class="btn-one rounded-5">{{ __('Dashboard') }} <i
                                 class="fa-regular fa-arrow-right-long"></i></a>
                 @else
-                    <a href="{{ route('login') }}" class="btn-one">{{ __('Login') }} <i
+                    <a href="{{ route('login') }}" class="btn-one rounded-5">{{ __('Login') }} <i
                                 class="fa-regular fa-arrow-right-long"></i></a>
                 @endif
 
