@@ -60,7 +60,7 @@ class ComponentController extends Controller
      */
     public function create()
     {
-        $languages = Language::where('status', 1)->pluck('name', 'code');
+        $languages = Language::where('status', true)->pluck('name', 'code');
 
         return view('backend.page.component.create', compact('languages'));
     }
@@ -86,7 +86,7 @@ class ComponentController extends Controller
         $data['name'] = $input['name'];
         $data['icon'] = self::uploadImage($input['icon']);
         $data['content'] = json_encode([config('app.static_default_language') => $content]);
-        $data['status'] = $input['status'] ?? 0;
+        $data['status'] = (bool) ($input['status'] ?? false);
         PageComponent::create($data);
 
         notifyEvs('success', __('Component Created Successfully'));
@@ -103,7 +103,7 @@ class ComponentController extends Controller
 
         $currentDisplay = $request->get('component_display', 'grid');
         $currentCategory = $request->get('component_category', 'all');
-        $languages = Language::where('status', 1)->pluck('name', 'code');
+        $languages = Language::where('status', true)->pluck('name', 'code');
 
         $data = $this->prepareComponentData($component, $languages);
 
@@ -226,7 +226,7 @@ class ComponentController extends Controller
 
             $component->name = $request->name ?? $component->name;
             $component->content = $modifyData;
-            $component->status = ($request->filled('status') || $lang !== config('app.static_default_language')) ? Status::TRUE : Status::FALSE;
+            $component->status = $request->filled('status') ? (bool) $request->status : false;
 
             // Save the component
             $component->save();
@@ -256,7 +256,7 @@ class ComponentController extends Controller
         $pageId = $request->page_id;
         $componentIds = json_decode($request->component_ids, true);
 
-        $query = PageComponent::where('status', 1);
+        $query = PageComponent::where('status', true);
 
         if ($category !== 'all') {
             $query->where('category', $category);
