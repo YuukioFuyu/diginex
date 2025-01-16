@@ -1,1 +1,26 @@
-<div class="col-lg-8 order-2 order-lg-1">    <div class="service-single__left-item">        <div class="image mb-50">            <img src="{{ asset($service->video_cover) }}" alt="image">            <div class="service-single__video-btn">                <div class="video-btn video-pulse wow fadeIn" data-wow-delay="200ms"                     data-wow-duration="1500ms">                    <a class="video-popup" href="{{ $service->video_link }}"><i                                class="fa-solid fa-play"></i></a>                </div>            </div>        </div>        <h3 class="title mb-30">{{ _tr($service->name) }}</h3>        <div class="d-flex justify-content-between align-items-center mb-30 bg-gradient p-3 rounded">            <h3 class="text-white">{{ __('Price').': '. setting('currency_symbol') . $service->price }}</h3>            <a href="{{ route('user.service.book-now', $service->slug) }}" class="btn btn-primary">{{ __('Book Now') }} <i class="fa-regular fa-arrow-right-long ms-2"></i></a>        </div>        {!! _tr($service->description) !!}        @include('frontend.service.partial._service_faq')    </div></div>
+<div class="col-lg-8 order-2 order-lg-1">
+    <div class="service-single__left-item">
+        <div class="image mb-50">
+            <img src="{{ asset($service->video_cover) }}" alt="image">
+            <div class="service-single__video-btn">
+                <div class="video-btn video-pulse wow fadeIn" data-wow-delay="200ms"
+                     data-wow-duration="1500ms">
+                    <a class="video-popup" href="{{ $service->video_link }}"><i
+                                class="fa-solid fa-play"></i></a>
+                </div>
+            </div>
+        </div>
+        <h3 class="title mb-30">{{ _tr($service->name) }}</h3>
+
+        <div class="d-flex justify-content-between align-items-center mb-30 bg-gradient p-3 rounded">
+            <h3 class="text-white">{{ __('Price').': '. setting('currency_symbol') . $service->price }}</h3>
+            <!-- <a href="{{ route('user.service.book-now', $service->slug) }}" class="btn btn-primary">{{ __('Book Now') }} <i class="fa-regular fa-arrow-right-long ms-2"></i></a> -->
+            <a href="/contact" class="btn-one wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">Dapatkan Penawaran <i class="fa-regular fa-arrow-right-long"></i></a>
+        </div>
+
+        {!! _tr($service->description) !!}
+
+
+        @include('frontend.service.partial._service_faq')
+    </div>
+</div>

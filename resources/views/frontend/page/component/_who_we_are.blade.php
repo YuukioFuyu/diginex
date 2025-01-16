@@ -46,7 +46,7 @@
 					</ul>
 				</div>
 				<div class="about__info mt-50 wow fadeInDown" data-wow-delay="400ms" data-wow-duration="1500ms">
-					<a href="{{ $data->content->button_link->value }}" class="btn-one">{{ $data->content->button_text->value }} <i class="fa-regular fa-arrow-right-long"></i></a>
+					<!-- <a href="{{ $data->content->button_link->value }}" class="btn-one">{{ $data->content->button_text->value }} <i class="fa-regular fa-arrow-right-long"></i></a> -->
 					<img src="{{ asset($data->content->signature->value) }}" alt="singature">
 				</div>
 			</div>

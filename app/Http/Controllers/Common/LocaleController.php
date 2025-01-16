@@ -35,7 +35,7 @@ class LocaleController extends Controller
         // Store locale and direction in session
         session(['locale' => $locale, 'dir' => $language->is_rtl ? 'rtl' : 'ltr']);
 
-        notifyEvs('success', __('Language Changed'));
+        // notifyEvs('success', __('Language Changed'));
 
         return redirect()->back();
 

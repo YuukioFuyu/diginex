@@ -21,13 +21,13 @@
             </div>
             <div class="d-none d-xl-flex gap-4">
 
-                @if(auth()->check())
+                <!-- @if(auth()->check())
                     <a href="{{ route('user.dashboard') }}" class="btn-one rounded-5">{{ __('Dashboard') }} <i
                                 class="fa-regular fa-arrow-right-long"></i></a>
                 @else
                     <a href="{{ route('login') }}" class="btn-one rounded-5">{{ __('Login') }} <i
                                 class="fa-regular fa-arrow-right-long"></i></a>
-                @endif
+                @endif -->
 
 
                 <div class="about-three__left-item d-flex flex-wrap gap-2 align-items-center">
