@@ -1,1 +1,25 @@
-@php    $faq_content = _tr($service->faq_content)@endphp@if(isset($faq_content['list']))<h3 class="title mb-30 mt-30">{{ $faq_content['title'] }}</h3><p class="mb-30">{!! $faq_content['summery'] !!}</p><div class="accordion" id="accordionExample">    @foreach($faq_content['list'] as $key => $item)        <div class="accordion-item wow fadeInDown shadow border-none" data-wow-delay="{{ $key == 0 ? '00ms' : '200ms' }}" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: fadeInDown;">            <h2 class="accordion-header" id="{{ 'heading'.$key }}">                <button class="accordion-button {{ $key == 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ 'collapse'.$key }}" aria-expanded="{{ $key == 0 ? 'true' : 'false' }}" aria-controls="collapseTwo">                    {{ $item['question'] }}                </button>            </h2>            <div id="{{ 'collapse'.$key }}" class="accordion-collapse collapse {{ $key == 0 ? 'show' : '' }}" aria-labelledby="{{ 'heading'.$key }}" data-bs-parent="#accordionExample">                <div class="accordion-body">                    <p>{{ $item['answer'] }}</p>                </div>            </div>        </div>    @endforeach</div>@endif
+@php
+    $faq_content = _tr($service->faq_content)
+@endphp
+
+@if(isset($faq_content['list']))
+<h3 class="title mb-30 mt-30">{{ $faq_content['title'] }}</h3>
+<p class="mb-30">{!! $faq_content['summery'] !!}</p>
+
+<div class="accordion" id="accordionExample" style="--bs-accordion-bg: transparent;">
+    @foreach($faq_content['list'] as $key => $item)
+        <div class="accordion-item wow fadeInDown shadow border-none" data-wow-delay="{{ $key == 0 ? '00ms' : '200ms' }}" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: fadeInDown;">
+            <h2 class="accordion-header" id="{{ 'heading'.$key }}">
+                <button class="accordion-button {{ $key == 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ 'collapse'.$key }}" aria-expanded="{{ $key == 0 ? 'true' : 'false' }}" aria-controls="collapseTwo">
+                    {{ $item['question'] }}
+                </button>
+            </h2>
+            <div id="{{ 'collapse'.$key }}" class="accordion-collapse collapse {{ $key == 0 ? 'show' : '' }}" aria-labelledby="{{ 'heading'.$key }}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>{{ $item['answer'] }}</p>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+@endif

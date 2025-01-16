@@ -2037,66 +2037,85 @@ input.main-search-input::placeholder {
   transform: translateY(0);
 }
 
+/* Button style */
 .btn-one {
   padding: 15px 25px;
-  background: var(--gradient-bg);
+  background: var(--gradient-bg); /* Menggunakan latar belakang gradien */
   font-weight: 600;
-  color: var(--white);
+  color: var(--white); /* Menjaga warna teks tetap kontras */
   transition: var(--transition);
   text-transform: capitalize;
   position: relative;
   z-index: 1;
   overflow: hidden;
+  border: 2px solid var(--white); /* Border tipis dengan warna utama */
+  border-radius: 25px; /* Sudut yang lebih halus */
 }
+
+/* Efek hover pada warna dan latar belakang */
+.btn-one:hover {
+  color: var(--primary-color);
+  background: rgba(0,0,0,0.0); /* Latar belakang berubah */
+  border-color: var(--primary-color); /* Border berubah pada hover */
+  border: 0px solid rgba(0,0,0,0.0);;
+}
+
+/* Ikon bergerak sedikit ke kanan saat hover */
 .btn-one i {
   margin-left: 8px;
-  transition: var(--transition);
+  transition: transform 0.3s ease;
 }
-@media (max-width: 575px) {
-  .btn-one i {
-    margin-left: 3px;
-    font-size: 12px;
-  }
+
+.btn-one:hover i {
+  transform: translateX(5px); /* Efek pergeseran pada ikon */
 }
+
+/* Garis bawah yang muncul pada hover */
+.btn-one::before,
+.btn-one::after {
+  position: absolute;
+  content: "";
+  background-color: var(--primary-color); /* Garis bawah sesuai warna utama */
+  z-index: -1;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+/* Garis bawah dari kiri bawah saat hover */
+.btn-one::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+}
+
+/* Garis bawah dari kanan atas saat hover */
+.btn-one::after {
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+}
+
+/* Mengatur efek hover garis bawah */
+.btn-one:hover::before {
+  width: 100%;
+}
+
+.btn-one:hover::after {
+  width: 100%;
+}
+
+/* Responsif untuk tampilan lebih kecil */
 @media (max-width: 575px) {
   .btn-one {
     padding: 8px 18px;
     font-size: 14px;
   }
-}
-.btn-one::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 0;
-  content: "";
-  background-color: var(--secondary-color);
-  z-index: -1;
-  transition: var(--transition);
-}
-.btn-one::before {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 0;
-  content: "";
-  background-color: var(--secondary-color);
-  z-index: -1;
-  transition: var(--transition);
-}
-.btn-one:hover {
-  color: var(--white);
-}
-.btn-one:hover::before {
-  height: 100%;
-}
-.btn-one:hover::after {
-  height: 100%;
-}
-.btn-one:hover i {
-  transform: translate(5px);
+
+  .btn-one i {
+    margin-left: 3px;
+    font-size: 12px;
+  }
 }
 
 .read-more-btn {
@@ -4830,7 +4849,7 @@ input.main-search-input::placeholder {
   border-radius: 50%;
   transition: var(--transition);
   background-color: var(--white);
-  color: var(--heading-color);
+  color: var(--secondary-color);
   margin-right: 5px;
 }
 .contact__left-item .social a:hover {
