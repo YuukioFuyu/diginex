@@ -129,6 +129,36 @@ if (! function_exists('getJsonData')) {
     }
 }
 
+if (! function_exists('asset')) {
+    /**
+     * Generate an asset path for the application.
+     *
+     * @param  string  $path
+     * @param  bool|null  $secure
+     * @return string
+     */
+    function asset($path, $secure = null)
+    {
+        // Define valid image file extensions
+        $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+
+        // Retrieve file extension from given path
+        $extension = pathinfo($path, PATHINFO_EXTENSION);
+
+        // Check if the file has an image extension
+        if (in_array(strtolower($extension), $imageExtensions)) {
+            // Determine the appropriate format of the new URL
+            $cdnPath = 'cdn-cgi/image/format=auto,quality=75/assets/' . $path;
+
+            // Using app(`url`)->asset to build the right URL
+            return app('url')->to($cdnPath, $secure);
+        }
+
+        // If not an image, return the URL as normal
+        return app('url')->asset('assets/' . $path, $secure);
+    }
+}
+
 if (! function_exists('demoImage')) {
     function demoImage($name = null): string
     {
